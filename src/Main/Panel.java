@@ -9,7 +9,11 @@ public class Panel extends JPanel implements Runnable {
     public static final int HEIGHT = 720;
     final int FPS = 60;
     Thread gameThread;
-    playManager pm;
+    public static playManager pm;
+    public static SoundTracks music = new SoundTracks();
+    public static SoundTracks soundEffect = new SoundTracks();
+
+
 
     public Panel() {
         this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -23,6 +27,8 @@ public class Panel extends JPanel implements Runnable {
     public void launchGame() {
         gameThread = new Thread(this);
         gameThread.start();
+        music.play(0,true);
+        music.loop();
     }
     @Override
     public void run() {
@@ -39,12 +45,18 @@ public class Panel extends JPanel implements Runnable {
             if(delta >=1) {
                 update();
                 repaint();
+                if (music.musicClip != null) {
+                    music.loop();
+                }
                 delta--;
             }
         }
     }
     private void update() {
-        pm.update();
+        if(Handler.pausePressed == false && pm.gameOver == false) {
+            pm.update();
+        }
+
     }
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
