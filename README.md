@@ -48,8 +48,4 @@ Contributions are welcome! ✨ If you'd like to contribute, please follow these 
 4. 📤 Push to the branch: `git push origin feature-name`.
 5. 🔃 Open a pull request.
 
-## License
-This project is licensed under the MIT License. 📜 See the `LICENSE` file for details.
 
----
-Enjoy playing **TETRAMINO ARCADE GAME** 🎉 and relive the nostalgia of classic arcade fun!
